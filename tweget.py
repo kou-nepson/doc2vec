@@ -1,6 +1,8 @@
 import requests
 import bs4
 import re
+import MeCab
+import sys
 
 userurl = 'https://twitter.com/TWITTERID'#ツイートを取得したいユーザーのID
 html = requests.get(userurl)
@@ -17,8 +19,10 @@ for n,l in enumerate(tweets):
 result = re.sub(r'\r','',result)
 result = re.sub(r'\n','',result)
 
+corpus = m.parse(result)
+
 with open("tweet.txt", "w") as f:
-    f.write(result)
+    f.write(corpus)
 
 
 
