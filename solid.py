@@ -52,7 +52,7 @@ for i in files:
            corpus += result
 
 if corpus != "":
-    with open("corpus.txt","w") as f:
+    with open("corpus.txt","a") as f:
         f.write(corpus)
 else :
     print("新しいデータはありません")#新しく読み込んだファイルがなければそのまま終了
